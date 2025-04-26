@@ -1,22 +1,33 @@
-// Changing text content dynamically
-document.getElementById("header-text").textContent = "DOM Manipulation Demo";
+// Button Click Event (Changes Color)
+document.getElementById("colorChangeBtn").addEventListener("click", function() {
+  this.style.backgroundColor = "yellow";
+  this.innerText = "Clicked!";
+});
 
-// Modifying CSS styles via JavaScript
-document.getElementById("intro").style.color = "blue";
-document.getElementById("intro").style.fontWeight = "bold";
+// Hover Effect
+document.getElementById("hoverText").addEventListener("mouseover", function() {
+  this.style.color = "red";
+});
 
-// Adding or removing an element when a button is clicked
-document.getElementById("toggle-button").addEventListener("click", () => {
-  const container = document.getElementById("content-container");
-  const newElement = document.createElement("p");
-  newElement.textContent = "This is a newly added element!";
-  
-  // Check if the element already exists
-  const existingElement = container.querySelector(".new-element");
-  if (existingElement) {
-    container.removeChild(existingElement);
-  } else {
-    newElement.className = "new-element";
-    container.appendChild(newElement);
+document.getElementById("hoverText").addEventListener("mouseout", function() {
+  this.style.color = "black";
+});
+
+// Keypress Detection
+document.getElementById("keypressInput").addEventListener("keypress", function(event) {
+  console.log("Key pressed:", event.key);
+});
+
+// Secret Action - Double Click
+document.getElementById("secretBtn").addEventListener("dblclick", function() {
+  alert("Secret unlocked! 🎉");
+});
+
+// Form Validation (Checks Password Length)
+document.getElementById("sampleForm").addEventListener("submit", function(event) {
+  let password = document.getElementById("passwordInput").value;
+  if (password.length < 8) {
+      alert("Password must be at least 8 characters long!");
+      event.preventDefault(); // Prevents form submission
   }
 });
